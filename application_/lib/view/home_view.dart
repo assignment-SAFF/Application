@@ -9,9 +9,9 @@ class HomeView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-        final viweModel = ref.watch(getDatat);
+    print("build2");
+    final viweModel = ref.watch(getDatatUser);
 
-    return Scaffold(
-    );
+    return const Scaffold();
   }
 }
