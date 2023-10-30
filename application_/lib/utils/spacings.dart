@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const aVSpace4 = SizedBox(height: 4);
 const aVSpace8 = SizedBox(height: 8);
+const aVSpace10 = SizedBox(height: 10);
 const aVSpace16 = SizedBox(height: 16);
 const aVSpace25 = SizedBox(height: 25);
 const aVSpace32 = SizedBox(height: 32);

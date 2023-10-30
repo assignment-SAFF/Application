@@ -31,15 +31,15 @@ class HomeView extends ConsumerWidget {
                     id: viweModel.listDataUserModel[index].id,
                     name: viweModel.listDataUserModel[index].userName,
                     email: viweModel.listDataUserModel[index].userEmail,
-                    phone: viweModel.listDataUserModel[index].userPhone,
+                 phone: viweModel.listDataUserModel[index].userPhone,
                   );
                 },
               ),
-            ))
+            )),
+            aVSpace10,
           ],
         ),
       ),
     );
   }
 }
-
