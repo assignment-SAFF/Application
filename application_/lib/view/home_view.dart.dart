@@ -24,17 +24,21 @@ class HomeView extends ConsumerWidget {
             Expanded(
                 child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: ListView.builder(
-                itemCount: viweModel.listDataUserModel.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return CardComponent(
-                    id: viweModel.listDataUserModel[index].id,
-                    name: viweModel.listDataUserModel[index].userName,
-                    email: viweModel.listDataUserModel[index].userEmail,
-                 phone: viweModel.listDataUserModel[index].userPhone,
-                  );
-                },
-              ),
+              child: viweModel.listDataUserModel.isEmpty
+                  ? const Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : ListView.builder(
+                      itemCount: viweModel.listDataUserModel.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return CardComponent(
+                          id: viweModel.listDataUserModel[index].id,
+                          name: viweModel.listDataUserModel[index].userName,
+                          email: viweModel.listDataUserModel[index].userEmail,
+                          phone: viweModel.listDataUserModel[index].userPhone,
+                        );
+                      },
+                    ),
             )),
             aVSpace10,
           ],
