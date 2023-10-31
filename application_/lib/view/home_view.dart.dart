@@ -7,8 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomeView extends ConsumerWidget {
-  const HomeView({super.key});
+  
+  final keyRefresh = GlobalKey<RefreshIndicatorState>();
 
+  HomeView({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final viweModel = ref.watch(getDatatUser);
@@ -24,21 +26,21 @@ class HomeView extends ConsumerWidget {
             Expanded(
                 child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: viweModel.listDataUserModel.isEmpty
-                  ? const Center(
-                      child: CircularProgressIndicator(),
-                    )
-                  : ListView.builder(
-                      itemCount: viweModel.listDataUserModel.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return CardComponent(
-                          id: viweModel.listDataUserModel[index].id,
-                          name: viweModel.listDataUserModel[index].userName,
-                          email: viweModel.listDataUserModel[index].userEmail,
-                          phone: viweModel.listDataUserModel[index].userPhone,
-                        );
-                      },
-                    ),
+              child: RefreshIndicator(
+                key: keyRefresh,
+                onRefresh: ()=> viweModel.getDatat(),
+                child: ListView.builder(
+                  itemCount: viweModel.listDataUserModel.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return CardComponent(
+                      id: viweModel.listDataUserModel[index].id,
+                      name: viweModel.listDataUserModel[index].userName,
+                      email: viweModel.listDataUserModel[index].userEmail,
+                      phone: viweModel.listDataUserModel[index].userPhone,
+                    );
+                  },
+                ),
+              ),
             )),
             aVSpace10,
           ],
