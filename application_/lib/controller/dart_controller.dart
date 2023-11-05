@@ -16,7 +16,7 @@ class GetDatatFromPHP extends ChangeNotifier {
   Future getDatat() async {
     listDataUserModel = [];
     try {
-      String baseUrl = 'http://192.168.8.165/Application/read_data.php';
+      String baseUrl = 'http://192.168.100.32/Application/read_data.php';
       final response = await http.get(Uri.parse(baseUrl));
 
       final responseAsJson = jsonDecode(response.body);
